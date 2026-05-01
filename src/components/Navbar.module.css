@@ -1,0 +1,133 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  height: var(--navbar-height);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+  transition: left 0.22s ease;
+  backdrop-filter: blur(8px);
+}
+
+.navbar.mini {
+  left: var(--sidebar-mini);
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.greeting {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.pageTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.darkBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: var(--transition);
+  color: var(--text-primary);
+}
+
+.darkBtn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: rotate(15deg);
+}
+
+.divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+}
+
+.userChip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 5px 14px 5px 5px;
+  transition: var(--transition);
+}
+
+.userChip:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #818cf8);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.userName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.83rem;
+  font-weight: 600;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.logoutBtn:hover {
+  background: #dc2626;
+  color: white;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .navbar { left: var(--sidebar-mini); padding: 0 16px; }
+  .navbar.mini { left: var(--sidebar-mini); }
+  .userName { display: none; }
+  .greeting { display: none; }
+}

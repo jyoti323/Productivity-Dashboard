@@ -1,0 +1,607 @@
+/* ============================================
+   DASHBOARD PAGE
+============================================ */
+.page {
+  margin-top: var(--navbar-height);
+  padding: 24px 28px;
+  min-height: calc(100vh - var(--navbar-height));
+  background: var(--bg-primary);
+}
+
+/* ── Header ── */
+.header {
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.4px;
+}
+
+.header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ============================================
+   STAT CARDS ROW
+============================================ */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.statCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.statIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.statInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.statValue {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.statTrend {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   MAIN CONTENT GRID
+============================================ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.gridFull {
+  grid-column: 1 / -1;
+}
+
+/* ============================================
+   GENERIC SECTION CARD
+============================================ */
+.sectionCard {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sectionHeader h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.viewAll {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+  background: var(--accent-light);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.viewAll:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* ============================================
+   TIME WIDGET
+============================================ */
+.timeWidget {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 150px;
+  justify-content: center;
+}
+
+.timeTopLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.timeClock {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.timeSeconds {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.timeAMPM {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.timeDate {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.timeDayName {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ============================================
+   STREAK WIDGET
+============================================ */
+.streakWidget {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 150px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle orange accent bar on left */
+.streakWidget::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #f59e0b, #fbbf24);
+  border-radius: 4px 0 0 4px;
+}
+
+.streakTopLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.streakRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.streakNumber {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #f59e0b;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.streakFireIcon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.streakUnit {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.streakMsg {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ============================================
+   COMPLETION RING
+============================================ */
+.ringWidget {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.ringWrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.ringCircleSvg {
+  width: 100px;
+  height: 100px;
+  transform: rotate(-90deg);
+}
+
+.ringBg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 10;
+}
+
+.ringFill {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: butt;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.ringCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.ringPct {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.ringSmall {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ringInfo {
+  flex: 1;
+}
+
+.ringInfoTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.ringRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ringRow:last-child {
+  margin-bottom: 0;
+}
+
+.ringDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ringRowLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.ringRowVal {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   RECENT TASKS
+============================================ */
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.taskItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.taskDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.taskInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.taskName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.taskMeta {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* ============================================
+   PROGRESS BARS
+============================================ */
+.progressWrap {
+  margin-bottom: 16px;
+}
+
+.progressLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.progressBar {
+  height: 7px;
+  background: var(--bg-primary);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+/* ── Priority list ── */
+.priorityList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.priorityRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.priorityDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.priorityName {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 55px;
+}
+
+.priorityBar {
+  flex: 1;
+  height: 7px;
+  background: var(--bg-primary);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.priorityFill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+.priorityCount {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  min-width: 16px;
+  text-align: right;
+}
+
+/* ============================================
+   HEATMAP — FIXED PROPERLY
+============================================ */
+.heatmapWrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  gap: 5px;
+  width: 100%;
+}
+
+.dayCell {
+  aspect-ratio: 1 / 1;
+  border-radius: 3px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dayCell:hover {
+  transform: scale(1.5);
+  z-index: 5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.dayCell.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.dayCell.medium {
+  background: #a5b4fc;
+  border-color: #a5b4fc;
+}
+
+.dayCell.light {
+  background: var(--accent-light);
+  border-color: rgba(99,102,241,0.2);
+}
+
+.daysLegend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  justify-content: flex-end;
+}
+
+.legendText {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.legendDot {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .page    { padding: 16px; }
+  .grid    { grid-template-columns: 1fr; }
+  .gridFull { grid-column: auto; }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .ringWidget { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .statsGrid { grid-template-columns: 1fr 1fr; }
+  .timeClock { font-size: 1.8rem; }
+  .streakNumber { font-size: 1.8rem; }
+}

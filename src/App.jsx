@@ -18,7 +18,7 @@ function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
 
   return (
-    <Router>
+    <Router basename="/Productivity-Dashboard">
       <div className={`app-wrapper ${darkMode ? 'dark' : ''}`}>
 
         {isLoggedIn && (
